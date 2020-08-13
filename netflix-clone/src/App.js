@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1>Chirs Netflix</h1>
       <Row title="Clone NETFLIX ORGINALS" fetchUrl={requests.fetchNetflixOrginals}/>
-      <Row titile="Trending NOw" fetchUrl={requests.fetchTrending}/>
+      <Row title="Trending Now" fetchUrl={requests.fetchTrending}/>
     </div>
   );
 }
