@@ -1,20 +1,19 @@
 import React, { useState , useEffect } from 'react'
 import requests from './Requests';
-import axios from 'axios';
+import axios from './axios';
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
 function Banner() {
     const [movie,setMovie] = useState([]);
-    console.log("giao")
 
     useEffect(() => {
         async function fetchData(){
            const request = await axios.get(requests.fetchNetflixOrginals)
 
-           console.log(Math.floor(Math.random() * request.data.results.length-1))
+          // console.log(Math.floor(Math.random() * request.data.results.length-1))
 
-           setMovie(request.data.results);
+           setMovie(request.data.results[Math.floor(Math.random() * request.data.results.length-1)]);
 
             //    Math.floor(Math.random() * request.data.results.length-1)
            return request;
@@ -28,7 +27,7 @@ function Banner() {
             <header className="banner"
             style={{
                 backgroundSize: "cover",
-                backgroundImage: `${base_url}${movie.backdrop_path}`,
+                backgroundImage: `url("https://image.tmdb.org/t/p/original${movie?.backdrop_path}")`,
                 backgroundPosition: "center center"
             }}>
 
